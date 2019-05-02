@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import controller.InitializeSettingsLoadAction;
+import controller.initializeSettings.LoadAction;
 
 public class InitializeSettings extends JPanel {
 	/**
@@ -19,7 +19,7 @@ public class InitializeSettings extends JPanel {
 	private static final long serialVersionUID = -3700541605597287854L;
 	private JTextField tfPathToSettings;
 	private JTable table;
-	private final InitializeSettingsLoadAction loadAction = new InitializeSettingsLoadAction(this);
+	private final LoadAction loadAction = new LoadAction(this);
 
 	/**
 	 * Create the panel.
@@ -81,5 +81,10 @@ public class InitializeSettings extends JPanel {
 
 	public JTable getTable() {
 		return table;
+	}
+
+	public void setPath(String absolutePath) {
+		tfPathToSettings.setText(absolutePath);
+
 	}
 }

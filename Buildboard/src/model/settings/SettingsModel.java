@@ -14,18 +14,20 @@ public class SettingsModel extends DefaultTableModel {
 	 */
 	private static final long serialVersionUID = 1386234933304568214L;
 	private Properties properties;
+	private String path;
 
-	public SettingsModel(String path) throws FileNotFoundException, IOException {
+	public SettingsModel() {
 		super(new Object[][] { { null, null }, }, new String[] { "Key", "Value" });
 		this.properties = new Properties();
-		FileInputStream fis = new FileInputStream(path);
-
-		properties.load(fis);
 	}
 
-	public void load() {
+	public void setPath(String path) {
+		this.path = path;
+	}
 
-
+	public void load() throws FileNotFoundException, IOException {
+		FileInputStream fis = new FileInputStream(path);
+		properties.load(fis);
 	}
 
 	public void write() {
