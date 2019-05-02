@@ -2,7 +2,6 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Toolkit;
 
 import javax.swing.JComboBox;
@@ -21,23 +20,6 @@ public class Launcher {
 
 	private JFrame frmBuildboard;
 	private JTable table;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					Launcher window = new Launcher();
-					window.frmBuildboard.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
@@ -109,4 +91,7 @@ public class Launcher {
 		frmBuildboard.getContentPane().add(lblNewLabel, BorderLayout.SOUTH);
 	}
 
+	public void setVisible() {
+		frmBuildboard.setVisible(true);
+	}
 }
