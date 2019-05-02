@@ -1,26 +1,20 @@
 package view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import java.awt.BorderLayout;
-import javax.swing.JToolBar;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import java.awt.EventQueue;
 import java.awt.Toolkit;
-import javax.swing.JPanel;
+
 import javax.swing.JComboBox;
-import javax.swing.JTable;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import model.BuildBoard;
-import net.miginfocom.swing.MigLayout;
-import javax.swing.JTextField;
 
 public class Launcher {
 
@@ -32,6 +26,7 @@ public class Launcher {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					Launcher window = new Launcher();
@@ -88,7 +83,6 @@ public class Launcher {
 		
 		JPanel editionPanel = new JPanel();
 		frmBuildboard.getContentPane().add(editionPanel, BorderLayout.CENTER);
-		editionPanel.setLayout(new MigLayout("", "[][434px]", "[20px][32px]"));
 		
 		JLabel lblTable = new JLabel("Table :");
 		editionPanel.add(lblTable, "cell 0 0,alignx trailing");
