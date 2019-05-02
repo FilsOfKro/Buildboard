@@ -14,8 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import model.BuildBoard;
-
 public class Launcher {
 
 	private JFrame frmBuildboard;
@@ -26,7 +24,7 @@ public class Launcher {
 	 */
 	public Launcher() {
 		initialize();
-		BuildBoard.init();
+		// TODO BuildBoard.init();
 	}
 
 	/**
@@ -35,7 +33,7 @@ public class Launcher {
 	private void initialize() {
 		frmBuildboard = new JFrame();
 		frmBuildboard.setTitle("Buildboard");
-		frmBuildboard.setIconImage(Toolkit.getDefaultToolkit().getImage(Launcher.class.getResource("/com/sun/javafx/scene/control/skin/modena/HTMLEditor-Bullets-Black.png")));
+		// frmBuildboard.setIconImage(Toolkit.getDefaultToolkit().getImage(Launcher.class.getResource("/com/sun/javafx/scene/control/skin/modena/HTMLEditor-Bullets-Black.png")));
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		frmBuildboard.setSize(screenSize.width, screenSize.height);
 		frmBuildboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
