@@ -2,7 +2,7 @@ package controller.launcher;
 
 import java.awt.EventQueue;
 
-import view.Launcher;
+import view.BuildBoard;
 
 public class LaunchControl {
 
@@ -14,8 +14,9 @@ public class LaunchControl {
 			@Override
 			public void run() {
 				try {
-					Launcher window = new Launcher();
+					BuildBoard window = new BuildBoard();
 					window.setVisible();
+					window.startPage();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
