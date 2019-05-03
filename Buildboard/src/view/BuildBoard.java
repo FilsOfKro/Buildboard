@@ -2,9 +2,11 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.Toolkit;
 
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -12,9 +14,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.SwingConstants;
 
-public class Launcher {
+public class BuildBoard {
 
 	private JFrame frmBuildboard;
 	private JTable table;
@@ -22,9 +24,8 @@ public class Launcher {
 	/**
 	 * Create the application.
 	 */
-	public Launcher() {
+	public BuildBoard() {
 		initialize();
-		// TODO BuildBoard.init();
 	}
 
 	/**
@@ -66,30 +67,30 @@ public class Launcher {
 		JPanel editionPanel = new JPanel();
 		frmBuildboard.getContentPane().add(editionPanel, BorderLayout.CENTER);
 
-		JLabel lblTable = new JLabel("Table :");
-		editionPanel.add(lblTable, "cell 0 0,alignx trailing");
+		JPanel statusPanel = new JPanel();
+		frmBuildboard.getContentPane().add(statusPanel, BorderLayout.SOUTH);
+		GridBagLayout gbl_statusPanel = new GridBagLayout();
+		gbl_statusPanel.columnWidths = new int[] { 929, 46, 0 };
+		gbl_statusPanel.rowHeights = new int[] { 14, 0 };
+		gbl_statusPanel.columnWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
+		gbl_statusPanel.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
+		statusPanel.setLayout(gbl_statusPanel);
 
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-				new Object[][] {
-					{null, null, null},
-					{null, null, null},
-				},
-				new String[] {
-						"New column", "New column", "New column"
-				}
-				));
-		table.setCellSelectionEnabled(true);
-		editionPanel.add(table, "cell 0 1 2 1,grow");
-
-		JComboBox comboBox = new JComboBox();
-		editionPanel.add(comboBox, "cell 1 0,alignx right,aligny top");
-
-		JLabel lblNewLabel = new JLabel("New label");
-		frmBuildboard.getContentPane().add(lblNewLabel, BorderLayout.SOUTH);
+		JLabel StatusLabel = new JLabel("New label");
+		StatusLabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		GridBagConstraints gbc_StatusLabel = new GridBagConstraints();
+		gbc_StatusLabel.insets = new Insets(0, 0, 0, 5);
+		gbc_StatusLabel.anchor = GridBagConstraints.NORTHWEST;
+		gbc_StatusLabel.gridx = 0;
+		gbc_StatusLabel.gridy = 0;
+		statusPanel.add(StatusLabel, gbc_StatusLabel);
 	}
 
 	public void setVisible() {
 		frmBuildboard.setVisible(true);
+	}
+
+	public void startPage() {
+
 	}
 }
