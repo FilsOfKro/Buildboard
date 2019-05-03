@@ -5,7 +5,6 @@ import java.io.File;
 
 import javax.swing.JFileChooser;
 
-import model.settings.SettingsModel;
 import view.InitializeSettings;
 
 public class BrowseAction extends SettingsAction {
@@ -14,7 +13,6 @@ public class BrowseAction extends SettingsAction {
 	 */
 	private static final long serialVersionUID = 2246123992595202578L;
 	private InitializeSettings panel;
-	private SettingsModel model;
 
 	public BrowseAction(InitializeSettings panel) {
 		super(panel);

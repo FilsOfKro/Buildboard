@@ -7,7 +7,11 @@ import java.util.Properties;
 
 import javax.swing.table.DefaultTableModel;
 
+import org.apache.log4j.Logger;
+
 public class SettingsModel extends DefaultTableModel {
+	// Logger de la classe
+	private static Logger log = Logger.getLogger(SettingsModel.class.getName());
 
 	/**
 	 *
@@ -22,16 +26,27 @@ public class SettingsModel extends DefaultTableModel {
 	}
 
 	public void setPath(String path) {
+		log.debug("Start setPath(String)");
+		log.debug("Parameter path : " + path);
+
 		this.path = path;
+
+		log.debug("Stop setPath(String)");
 	}
 
 	public void load() throws FileNotFoundException, IOException {
+		log.debug("Start load()");
+
 		FileInputStream fis = new FileInputStream(path);
 		properties.load(fis);
+
+		log.debug("Stop load()");
 	}
 
 	public void write() {
+		log.debug("Start write()");
 
+		log.debug("Stop write()");
 	}
 
 }

@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import controller.initializeSettings.BrowseAction;
 import controller.initializeSettings.LoadAction;
 
 public class InitializeSettings extends JPanel {
@@ -20,6 +21,7 @@ public class InitializeSettings extends JPanel {
 	private JTextField tfPathToSettings;
 	private JTable table;
 	private final LoadAction loadAction = new LoadAction(this);
+	private final BrowseAction browseAction = new BrowseAction(this);
 
 	/**
 	 * Create the panel.
@@ -47,9 +49,10 @@ public class InitializeSettings extends JPanel {
 		gbc_tfPathToSettings.gridx = 1;
 		gbc_tfPathToSettings.gridy = 0;
 		add(tfPathToSettings, gbc_tfPathToSettings);
-		tfPathToSettings.setColumns(10);
+		tfPathToSettings.setColumns(50);
 
 		JButton btnBrowse = new JButton("Parcourir...");
+		btnBrowse.setAction(browseAction);
 		GridBagConstraints gbc_btnBrowse = new GridBagConstraints();
 		gbc_btnBrowse.insets = new Insets(0, 0, 5, 0);
 		gbc_btnBrowse.gridx = 2;
@@ -63,15 +66,6 @@ public class InitializeSettings extends JPanel {
 		gbc_btnLoadProperties.gridx = 1;
 		gbc_btnLoadProperties.gridy = 1;
 		add(btnLoadProperties, gbc_btnLoadProperties);
-
-		table = new JTable();
-		GridBagConstraints gbc_table = new GridBagConstraints();
-		gbc_table.gridwidth = 3;
-		gbc_table.insets = new Insets(0, 0, 0, 5);
-		gbc_table.fill = GridBagConstraints.BOTH;
-		gbc_table.gridx = 0;
-		gbc_table.gridy = 2;
-		add(table, gbc_table);
 
 	}
 

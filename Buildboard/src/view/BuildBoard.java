@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -13,13 +14,13 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 public class BuildBoard {
 
 	private JFrame frmBuildboard;
-	private JTable table;
+	private JPanel editionPanel;
 
 	/**
 	 * Create the application.
@@ -33,11 +34,15 @@ public class BuildBoard {
 	 */
 	private void initialize() {
 		frmBuildboard = new JFrame();
+		frmBuildboard.setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(BuildBoard.class.getResource("/com/sun/java/swing/plaf/windows/icons/File.gif")));
 		frmBuildboard.setTitle("Buildboard");
-		// frmBuildboard.setIconImage(Toolkit.getDefaultToolkit().getImage(Launcher.class.getResource("/com/sun/javafx/scene/control/skin/modena/HTMLEditor-Bullets-Black.png")));
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		frmBuildboard.setSize(screenSize.width, screenSize.height);
+		frmBuildboard.setSize(screenSize.width / 2, screenSize.height / 2);
+
+		frmBuildboard.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frmBuildboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
 		JMenuBar menuBar = new JMenuBar();
 		frmBuildboard.setJMenuBar(menuBar);
@@ -62,12 +67,21 @@ public class BuildBoard {
 
 		JMenuItem mntmAbout = new JMenuItem("About");
 		mnHelp.add(mntmAbout);
+
 		frmBuildboard.getContentPane().setLayout(new BorderLayout(0, 0));
 
-		JPanel editionPanel = new JPanel();
+		editionPanel = new JPanel();
 		frmBuildboard.getContentPane().add(editionPanel, BorderLayout.CENTER);
+		GridBagLayout gbl_editionPanel = new GridBagLayout();
+		gbl_editionPanel.columnWidths = new int[] { 0 };
+		gbl_editionPanel.rowHeights = new int[] { 0 };
+		gbl_editionPanel.columnWeights = new double[] { Double.MIN_VALUE };
+		gbl_editionPanel.rowWeights = new double[] { Double.MIN_VALUE };
+		editionPanel.setLayout(gbl_editionPanel);
+
 
 		JPanel statusPanel = new JPanel();
+		statusPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		frmBuildboard.getContentPane().add(statusPanel, BorderLayout.SOUTH);
 		GridBagLayout gbl_statusPanel = new GridBagLayout();
 		gbl_statusPanel.columnWidths = new int[] { 929, 46, 0 };
@@ -91,6 +105,6 @@ public class BuildBoard {
 	}
 
 	public void startPage() {
-
+		editionPanel.add(new InitializeSettings());
 	}
 }

@@ -2,3 +2,8 @@
 /model/
 /res/
 /view/
+/log4jREC001.properties
+/util/
+/log4j.properties
+/log4j2.component.properties
+/log4j2.properties

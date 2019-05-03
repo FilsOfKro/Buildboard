@@ -1,4 +1,4 @@
-package res;
+package util;
 
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
